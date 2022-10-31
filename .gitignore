@@ -1,5 +1,5 @@
 CommandStation-EX
-wifi_pwd.h
+.env
 
 # Prerequisites
 *.d

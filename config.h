@@ -87,8 +87,8 @@ The configuration file for DCC-EX Command Station
 // you want to change the password from default AP mode password
 // to the AP password you want. 
 // Your password may not contain ``"'' (double quote, ASCII 0x22).
-//#define WIFI_PASSWORD "Your network passwd"
-#include "wifi_pwd.h"
+// KML don't put password here...Makefile will sed it in place
+#define WIFI_PASSWORD "Your network passwd"
 //
 // WIFI_HOSTNAME: You probably don't need to change this
 #define WIFI_HOSTNAME "dccex"
