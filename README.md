@@ -47,3 +47,22 @@ flowchart LR
   Buck14 --->|14V| HBridge & Motor
   Mega -->|5V| Gpio
 ```
+
+### Communication & Ports
+
+```mermaid
+flowchart LR
+  subgraph Layout
+    CmdStn[ComandStation EX]
+    Touch[Touch Panel Nano]
+    Gpio["GPIO Expanders 1-2"]
+    Touch <-->|I2C| CmdStn
+    CmdStn -->|I2C| Gpio
+    end
+  Phone
+  Laptop
+  Cassette
+  Phone & Laptop -->|WiFi| Layout
+  Laptop <-->|USB| Layout
+  Layout -->|DCC| Cassette
+```
