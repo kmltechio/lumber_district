@@ -45,7 +45,8 @@ flowchart LR
   Buck8 -->|8V| Mega
   Buck8 --->|8V| Lights & Touch
   Buck14 --->|14V| HBridge & Motor
-  Mega -->|5V| Gpio
+  Mega --->|5V| Gpio
+  Mega -->|5V| Fan
 ```
 
 ### Communication & Ports
