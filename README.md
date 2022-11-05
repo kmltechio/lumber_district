@@ -22,8 +22,10 @@
 
 ```mermaid
 flowchart LR
-  P120[120V Plug]
-  Pswitch[On/Off]
+  subgraph ac ["⚡️120V A/C⚡️"]
+    P120[120V Plug]
+    Pswitch[On/Off]
+    end
   PSU
   P120 -->|black| Pswitch --> PSU
   P120 -->|white| PSU
@@ -60,9 +62,8 @@ flowchart LR
     Touch <-->|I2C| CmdStn
     CmdStn -->|I2C| Gpio
     end
-  Phone
-  Laptop
-  Cassette
+  Wall[Wall Plug]
+  Wall -->|"⚡120V A/C⚡️"| Layout
   Phone & Laptop -->|WiFi| Layout
   Laptop <-->|USB| Layout
   Layout -->|DCC| Cassette
@@ -80,7 +81,7 @@ flowchart
     LED2[Prog LED]
     LED3[DC LED]
     end
-  Wall[Wall Plug] -->|120v| Toggle1 --> PSU
+  Wall[Wall Plug] -->|"⚡️120V A/C⚡️"| Toggle1 --> PSU
   Buck8[Buck 8V] --> Toggle2 --> Lights[Lighting Nano]
   Mega -->|Pin 3| LED1
   Mega -->|Pin TBD1| LED2
