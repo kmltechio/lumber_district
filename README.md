@@ -1,9 +1,14 @@
-# DCC-EX config and automation settings for CB&Q Lumber District.
+# lumber_district
+
+Configuration and automation settings for an N scale layout modeled off of CB&Q's Lumber District in Chicago during the 1950s/60s.
 
 ## Prerequisites
 
-1. Unix-like system with GNU make (tested on MacOS
+1. Unix-like system with GNU make (developed and tested on MacOS)
 1. [1Password CLI](https://developer.1password.com/docs/cli/get-started#install)
+1. [Arduino IDE](https://www.arduino.cc/en/software) v1.8.x preferred
+
+TODO investigate use of [arduino-cli](https://github.com/arduino/arduino-cli) instead of IDE
 
 ## Setup
 
@@ -14,7 +19,6 @@
 
 ## TODOs
 
-1. Can we use arduino-cli to make the project?
 1. Will eventually have code for the I2C arduinos that manage the touch toggles
 
 ## Diagrams
