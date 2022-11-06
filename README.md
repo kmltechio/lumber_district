@@ -104,5 +104,27 @@ flowchart
   Mega -->|Pin TBD3| Toggle3
   Mega -->|Pin TBD4| LED3
   LED1 & LED2 & LED3 & Toggle3 --> GND
-    
 ```
+
+### Touch Panels Wiring
+
+```mermaid
+flowchart LR
+  subgraph tp1[Lower Level Panel]
+    touchLP["Touch Toggle 2.1...2.6"]
+    end
+  subgraph tp2[Upper Level Panel]
+    subgraph base[Nano Base]
+      Nano
+      end
+    touchUP["Touch Toggle 1.1...1.9"]
+    end
+  Buck8 -->|+8V| Nano -->|GND| Buck8
+  Mega -->|I2C Clock| Nano
+  Mega <-->|I2C Data| Nano
+  Nano -->|I2C Interrupt| Mega
+  base -->|"brown +5V"| touchLP & touchUP -->|"red GND"| base
+  base <-->|"yellow sensor"| touchLP & touchUP
+
+```
+
