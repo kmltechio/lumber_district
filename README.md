@@ -40,8 +40,8 @@ flowchart LR
   subgraph ac ["⚡️120V A/C⚡️"]
     P120[Wall Plug]
     Pswitch[On/Off]
+    PSU
     end
-  PSU
   P120 -->|black| Pswitch --> PSU
   P120 -->|white| PSU
   P120 -->|green| PSU
@@ -60,9 +60,10 @@ flowchart LR
   Gpio["GPIO Expanders 1-2"]
   HBridge["H Bridges 1-9"]
   Buck8 -->|8V| Mega
-  Buck8 --->|8V| Lights & Touch
-  Buck14 --->|14V| HBridge & Motor
-  Mega --->|5V| Gpio
+  Buck8 ----->|8V| Lights & Touch
+  Buck14 ----->|14V| HBridge
+  Buck14 --->|14V| Motor
+  Mega ---->|5V| Gpio
   Mega -->|5V| Fan
 ```
 
