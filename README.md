@@ -23,7 +23,7 @@
 ```mermaid
 flowchart LR
   subgraph ac ["⚡️120V A/C⚡️"]
-    P120[120V Plug]
+    P120[Wall Plug]
     Pswitch[On/Off]
     end
   PSU
