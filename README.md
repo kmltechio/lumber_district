@@ -2,7 +2,8 @@
 
 ## Prerequisites
 
-1. 1Password CLI
+1. Unix-like system with GNU make (tested on MacOS
+1. [1Password CLI](https://developer.1password.com/docs/cli/get-started#install)
 
 ## Setup
 
