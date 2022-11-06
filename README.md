@@ -95,15 +95,16 @@ flowchart
     Toggle3["Prog v. DC SPDT (On)-Off-(On)"]
     LED2[Prog LED]
     LED3[DC LED]
+    PanelGND
     end
-  Wall[Wall Plug] -->|"⚡️120V A/C⚡️"| Toggle1 --> PSU
-  Buck8[Buck 8V] --> Toggle2 --> Lights[Lighting Nano]
-  Mega -->|Pin 3| LED1
+  Wall[Wall Plug] --->|"⚡️120V A/C⚡️"| Toggle1 ---> PSU
+  Buck8[Buck 8V] ---> Toggle2 ---> Lights[Lighting Nano]
+  Mega --->|Pin 3| LED1
   Mega -->|Pin TBD1| LED2
   Mega -->|Pin TBD2| Toggle3
   Mega -->|Pin TBD3| Toggle3
   Mega -->|Pin TBD4| LED3
-  LED1 & LED2 & LED3 & Toggle3 --> GND
+  LED1 & LED2 & LED3 & Toggle3 --> PanelGND --> GND
 ```
 
 ### Touch Panels Wiring
