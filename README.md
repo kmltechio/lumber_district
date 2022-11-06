@@ -87,6 +87,8 @@ flowchart LR
 
 ### Power Panel Wiring
 
+Consider powering the Track Power LED off of the actual DCC signal. Tap in after the fuses/circuit breakers using a bridge rectifier and resistor. Can also be modified for the Prog/DC track. Use two LEDs back to back - Prog would light both; DC would light one or the other depending on direction. 
+
 ```mermaid
 flowchart 
   subgraph Panel[Power Panel]
