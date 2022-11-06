@@ -78,10 +78,10 @@ flowchart LR
     CmdStn -->|I2C| Gpio
     end
   Wall[Wall Plug]
-  Wall -->|"⚡3 Wire IEC 120V A/C⚡️"| Layout
-  Phone & Laptop -.->|WiFi| Layout
-  Laptop <-->|USB| Layout
-  Layout -->|2.1mm Barrel Connector| Cassette
+  Wall -->|"⚡IEC Socket⚡️"| Layout
+  Phone & Tablet & Laptop -.->|WiFi| Layout
+  Laptop <-->|USB type A| Layout
+  Layout -->|2.1mm Barrel Connector| Cassette[Staging Cassette]
 ```
 
 ### Power Panel Wiring
