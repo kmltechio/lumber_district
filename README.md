@@ -15,8 +15,8 @@ Finally an Arduino Nano Every with custom code drives static and animated LED li
 ## Prerequisites
 
 1. Unix-like system with GNU make (developed and tested on MacOS)
-1. [1Password CLI](https://developer.1password.com/docs/cli/get-started#install)
-1. [Arduino IDE](https://www.arduino.cc/en/software) v1.8.x preferred
+1. [1Password CLI](https://developer.1password.com/docs/cli/get-started#install) - so that I don't have to commit my home wifi network password
+1. [Arduino IDE](https://www.arduino.cc/en/software) - v1.8.x is preferred over 2.0.x as it generates more compact compiled objects.
 
 TODO investigate use of [arduino-cli](https://github.com/arduino/arduino-cli) instead of IDE
 
