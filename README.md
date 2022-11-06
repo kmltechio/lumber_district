@@ -8,7 +8,7 @@ A secondary track can toggle between DCC Programming mode and DC power to run le
 
 Mimic panels are designed around Berret Hill Touch Toggles driven by custom code loaded onto an Arduino Nano Every which communicates with the Mega over I2C
 
-Also on the I2C bus are two 16pin GPIO expanders to activate L289N H Bridges to drive the Kato Unitrack snap turnouts.
+Also on the I2C bus are two 16pin GPIO expanders to activate L289N H Bridges which drive the Kato Unitrack snap turnouts.
 
 Finally an Arduino Nano Every with custom code drives static and animated LED lighting across the layout. 
 
