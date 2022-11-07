@@ -91,7 +91,9 @@ The configuration file for DCC-EX Command Station
 #define WIFI_PASSWORD "op://Personal/Home Wifi/wireless network password"
 //
 // WIFI_HOSTNAME: You probably don't need to change this
-#define WIFI_HOSTNAME "dccex"
+// KML: Comcast router won't let me assign my own names so have to use the name
+// they assign
+#define WIFI_HOSTNAME "ESP_6D1E9E"
 //
 // WIFI_CHANNEL: If the line "#define ENABLE_WIFI true" is uncommented, 
 // WiFi will be enabled (Mega only). The default channel is set to "1" whether
