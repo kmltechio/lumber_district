@@ -20,6 +20,13 @@ Run this anytime you make changes to your local config/macros.
 
 1. `cp` the local header comfig/marco files into the CommandStation-EX folder
 
-## Compiling
+Since some of the files contain 1Password secrets that get replaced you will have to log in to `op`.  To prevent having to do this every time you run make you can run `eval $(op signon)` from your shell. This will keep you logged in for 30 minutes. 
 
-1. Use the Arduino IDE to `verify` then `upload` your changes to your board. 
+# Compilation
+
+Use the Arduino IDE for these steps.
+
+1. Run `make setup` if needed
+1. `verify`
+1. Ensure your board is connected. 
+1. `upload` 
