@@ -25,3 +25,11 @@ Finally an Arduino Nano Every with custom code drives static and animated LED li
     1. Verify in serial monitor?
     1. Test in Train Driver
     1. Setup images in Train Driver
+1. Finalize benchwork design
+    1. Of frame
+        1. Including around the upper level
+        1. Of shelf/electronics box/panels
+    1. Thickness of foam/underlayment
+    1. Leg mounting
+    1. Backdrop
+    1. Staging cassette(s)
