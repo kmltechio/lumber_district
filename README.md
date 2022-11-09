@@ -18,8 +18,6 @@ Finally an Arduino Nano Every with custom code drives static and animated LED li
 1. [1Password CLI](https://developer.1password.com/docs/cli/get-started#install) - so that I don't have to commit my home wifi network password
 1. [Arduino IDE](https://www.arduino.cc/en/software) - v1.8.x is preferred over 2.0.x as it generates more compact compiled objects.
 
-TODO investigate use of [arduino-cli](https://github.com/arduino/arduino-cli) instead of IDE
-
 ## Setup
 
 `make` will do the following:
@@ -29,7 +27,7 @@ TODO investigate use of [arduino-cli](https://github.com/arduino/arduino-cli) in
 
 ## TODOs
 
-1. Will eventually have code for the I2C arduinos that manage the touch toggles
+1. Investigate use of [arduino-cli](https://github.com/arduino/arduino-cli) with make instead of manualing clicking in Arduino IDE.
 
 ## Diagrams
 
