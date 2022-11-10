@@ -2,17 +2,12 @@
 
 ```mermaid
 flowchart LR
-  subgraph ac ["⚡️120V A/C⚡️"]
-    P120[Wall Plug]
-    Pswitch[On/Off]
-    PSU
-    end
-  P120 -->|black| Pswitch --> PSU
-  P120 -->|white| PSU
-  P120 -->|green| PSU
+  P120[Wall Plug]
+  PSU
+  P120 -->|120VAC| PSU
   Buck14[Buck 14V]
   Buck8[Buck 8V]
-  PSU -->|24V| Buck14 & Buck8
+  PSU -->|19.5V| Buck14 & Buck8
   subgraph CmdStn[CommandStation EX]
     direction BT
     Mega
@@ -44,10 +39,11 @@ flowchart LR
     Touch <-->|I2C| CmdStn
     CmdStn -->|I2C| Gpio
     end
-  Wall[Wall Plug]
-  Wall -->|"⚡IEC Socket⚡️"| Layout
+  PSU[19.5V PSU]
+  PSU -->|"2.5mm Barrel Connector"| Layout
   Phone & Tablet & Laptop -.->|WiFi| Layout
   Laptop <-->|USB type A| Layout
+  Layout -->|2.1mm Barrel Connector| Cassette[Staging Cassette]
   Layout -->|2.1mm Barrel Connector| Cassette[Staging Cassette]
 ```
 
@@ -66,8 +62,8 @@ flowchart
     LED3[DC LED]
     PanelGND
     end
-  Wall[Wall Plug] --->|"⚡️120V A/C⚡️"| Toggle1 ---> PSU
-  Buck8[Buck 8V] ---> Toggle2 ---> Lights[Lighting Nano]
+  PSU --->|"+19.5V"| Toggle1 ---> pd[Power Distribution]
+  pd8[Power Distribution] --->|"+8V"| Toggle2 ---> Lights[Lighting Nano]
   Mega --->|Pin 3| LED1
   Mega -->|Pin TBD1| LED2
   Mega -->|Pin TBD2| Toggle3
