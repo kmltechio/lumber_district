@@ -49,27 +49,29 @@ flowchart LR
 
 # Power Panel Wiring
 
-Consider powering the Track Power LED off of the actual DCC signal. Tap in after the fuses/circuit breakers using a bridge rectifier and resistor. Can also be modified for the Prog/DC track. Use two LEDs back to back - Prog would light both; DC would light one or the other depending on direction. 
-
 ```mermaid
 flowchart 
   subgraph Panel[Power Panel]
     Toggle1[Power SPST On-Off]
     Toggle2[Lights SPST On-Off]
-    LED1[Track Power LED]
+    LED1A["Track A bi-LED"]
+    ResistorA[Resistor]
+    LED1B["Track B bi-LED"]
+    ResistorB[Resistor]
     Toggle3["Prog v. DC SPDT (On)-Off-(On)"]
     LED2[Prog LED]
     LED3[DC LED]
     PanelGND
     end
-  PSU --->|"+19.5V"| Toggle1 ---> pd[Power Distribution]
-  pd8[Power Distribution] --->|"+8V"| Toggle2 ---> Lights[Lighting Nano]
-  Mega --->|Pin 3| LED1
-  Mega -->|Pin TBD1| LED2
-  Mega -->|Pin TBD2| Toggle3
-  Mega -->|Pin TBD3| Toggle3
-  Mega -->|Pin TBD4| LED3
-  LED1 & LED2 & LED3 & Toggle3 --> PanelGND --> GND
+  PSU -->|"+19.5V"| Toggle1 ---> pd[Power Distribution]
+  pd8[Power Distribution] -->|"+8V"| Toggle2 ---> Lights[Lighting Nano]
+  TrackA["Track A +"] --> LED1A --> ResistorA --> TrackAneg["Track A -"]
+  TrackB["Track B +"] --> LED1B --> ResistorB --> TrackBneg["Track B -"]
+  Mega -->|Pin 22| LED2
+  Mega -->|Pin 23| Toggle3
+  Mega -->|Pin 24| Toggle3
+  Mega -->|Pin 25| LED3
+  LED2 & LED3 & Toggle3 --> PanelGND --> GND
 ```
 
 # Touch Panels Wiring
