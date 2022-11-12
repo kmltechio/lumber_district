@@ -67,10 +67,10 @@ flowchart
   pd8[Power Distribution] -->|"+8V"| Toggle2 ---> Lights[Lighting Nano]
   TrackA["Track A +"] --> LED1A --> ResistorA --> TrackAneg["Track A -"]
   TrackB["Track B +"] --> LED1B --> ResistorB --> TrackBneg["Track B -"]
-  Mega -->|Pin 22| LED2
-  Mega -->|Pin 23| Toggle3
+  Mega -->|Pin 23| LED2
   Mega -->|Pin 24| Toggle3
-  Mega -->|Pin 25| LED3
+  Mega -->|Pin 25| Toggle3
+  Mega -->|Pin 26| LED3
   LED2 & LED3 & Toggle3 --> PanelGND --> GND
 ```
 
