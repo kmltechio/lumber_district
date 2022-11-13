@@ -51,3 +51,4 @@ lighting across the layout.
     1. Leg mounting
     1. Backdrop
     1. Staging cassette(s)
+1. Investigate use of dfplayer for city sounds/bg noise/ex rail automations
