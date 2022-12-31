@@ -1,5 +1,5 @@
 CS_EX=CommandStation-EX
-BRANCH=PORTX_HAL_cursense2_HIGHMEM
+BRANCH=devel
 
 CONFIGS=$(CS_EX)/myAutomation.h
 CONFIGS_W_SECRETS=$(CS_EX)/config.h
@@ -25,6 +25,7 @@ $(CONFIGS): $(CS_EX)/%: %
 $(CONFIGS_W_SECRETS): $(CS_EX)/%: %
 	op inject -f -i $< -o $@
 
+# TODO check for local modifications before removing
 clean:
 	rm -rf $(CS_EX)
 
