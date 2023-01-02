@@ -9,18 +9,20 @@
 
 # Setup
 
-## `make setup`
+## `make update_cs_ex`
 
 Run this before doing anything or anytime you want to pull changes from
 CommandSration-EX. 
 
+1. Edit `Makefile` setting the `BRANCH` variable setting the branch of
+   CommandStation-EX that you want to build
+1. Run `make update_cs_ex` to do the following
 1. `git clone` the CommandStation-EX repo
 1. `git switch` to the specified branch
-1. `make config`
 
 ## `make config`
 
-Run this anytime you make changes to your local config/macros.
+Run this anytime you make changes to your local config/macros. This will
 
 1. `cp` the local header comfig/marco files into the CommandStation-EX folder
 
@@ -34,6 +36,6 @@ for 30 minutes.
 Use the Arduino IDE for these steps.
 
 1. Run `make setup` if needed
-1. `verify`
-1. Ensure your board is connected. 
-1. `upload` 
+1. Press the `verify` button
+1. Ensure your board is connected (typically via USB on COM3)
+1. Press the `upload` button

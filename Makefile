@@ -1,7 +1,11 @@
 CS_EX=CommandStation-EX
-BRANCH=devel
 
+# Edit this to build a specific branch of CommandStation-EX
+BRANCH=devel
+# Add any files here that you need straight copied into the CS_EX directory
 CONFIGS=$(CS_EX)/myAutomation.h
+# Add any files here that you need 1Password values interpolated into then
+# copied into the CS_EX directory
 CONFIGS_W_SECRETS=$(CS_EX)/config.h
 
 all: update_cs_ex config
