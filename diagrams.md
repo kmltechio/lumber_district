@@ -58,20 +58,11 @@ flowchart
     ResistorA[Resistor]
     LED1B["Track B bi-LED"]
     ResistorB[Resistor]
-    Toggle3["Prog v. DC SPDT (On)-Off-(On)"]
-    LED2[Prog LED]
-    LED3[DC LED]
-    PanelGND
     end
   PSU -->|"+19.5V"| Toggle1 ---> pd[Power Distribution]
   pd8[Power Distribution] -->|"+8V"| Toggle2 ---> Lights[Lighting Nano]
   TrackA["Track A +"] --> LED1A --> ResistorA --> TrackAneg["Track A -"]
   TrackB["Track B +"] --> LED1B --> ResistorB --> TrackBneg["Track B -"]
-  Mega -->|Pin 23| LED2
-  Mega -->|Pin 24| Toggle3
-  Mega -->|Pin 25| Toggle3
-  Mega -->|Pin 26| LED3
-  LED2 & LED3 & Toggle3 --> PanelGND --> GND
 ```
 
 # Touch Panels Wiring
