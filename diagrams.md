@@ -44,7 +44,6 @@ flowchart LR
   Phone & Tablet & Laptop -.->|WiFi| Layout
   Laptop <-->|USB type A| Layout
   Layout -->|2.1mm Barrel Connector| Cassette[Staging Cassette]
-  Layout -->|2.1mm Barrel Connector| Cassette[Staging Cassette]
 ```
 
 # Power Panel Wiring
