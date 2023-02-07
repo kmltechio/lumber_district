@@ -17,14 +17,14 @@ flowchart LR
     end
   Lights[Lighting Nano]
   Touch[Touch Panel Nano]
-  Gpio["GPIO Expanders 1-2"]
+  Gpio["IO_EX Nanos 1-2"]
   HBridge["H Bridges 1-9"]
   IRSensors[IR Sensors]
   Buck8 -->|8V| Mega
-  Buck8 ----->|8V| Lights & Touch
+  Buck8 ----->|8V| Lights & Touch & Gpio
   Buck14 ----->|14V| HBridge
   Buck14 --->|14V| Motor
-  Mega ---->|5V| Gpio & IRSensors
+  Mega ---->|5V| IRSensors
   Mega -->|5V| Fan
 ```
 
@@ -35,7 +35,7 @@ flowchart LR
   subgraph Layout
     CmdStn[ComandStation EX]
     Touch[Touch Panel Nano]
-    Gpio["GPIO Expanders 1-2"]
+    Gpio["IO_EX Nanos 1-2"]
     Touch <-->|I2C| CmdStn
     CmdStn -->|I2C| Gpio
     end
@@ -79,9 +79,8 @@ flowchart LR
     touchUP["Touch Toggle 1.1...1.9"]
     end
   Buck8 -->|+8V| Nano -->|GND| Buck8
-  Mega -->|I2C Clock| Nano
-  Mega <-->|I2C Data| Nano
-  Nano -->|I2C Interrupt| Mega
+  Mega -->|I2C Clock| base
+  Mega <-->|I2C Data| base
   base -->|"brown +5V"| touchLP & touchUP -->|"red GND"| base
   base <-->|"yellow sensor"| touchLP & touchUP
 
