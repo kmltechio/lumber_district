@@ -52,14 +52,12 @@ flowchart LR
 flowchart 
   subgraph Panel[Power Panel]
     Toggle1[Power SPST On-Off]
-    Toggle2[Lights SPST On-Off]
     LED1A["Track A bi-LED"]
     ResistorA[Resistor]
     LED1B["Track B bi-LED"]
     ResistorB[Resistor]
     end
   PSU -->|"+19.5V"| Toggle1 ---> pd[Power Distribution]
-  pd8[Power Distribution] -->|"+8V"| Toggle2 ---> Lights[Lighting Nano]
   TrackA["Track A +"] --> LED1A --> ResistorA --> TrackAneg["Track A -"]
   TrackB["Track B +"] --> LED1B --> ResistorB --> TrackBneg["Track B -"]
 ```
