@@ -46,39 +46,23 @@ flowchart LR
   Layout -->|2.1mm Barrel Connector| Cassette[Staging Cassette]
 ```
 
-# Power Panel Wiring
 
-```mermaid
-flowchart 
-  subgraph Panel[Power Panel]
-    Toggle1[Power SPST On-Off]
-    LED1A["Track A bi-LED"]
-    ResistorA[Resistor]
-    LED1B["Track B bi-LED"]
-    ResistorB[Resistor]
-    end
-  PSU -->|"+19.5V"| Toggle1 ---> pd[Power Distribution]
-  TrackA["Track A +"] --> LED1A --> ResistorA --> TrackAneg["Track A -"]
-  TrackB["Track B +"] --> LED1B --> ResistorB --> TrackBneg["Track B -"]
-```
-
-# Touch Panels Wiring
+# Control Panel Wiring
 
 ```mermaid
 flowchart LR
-  subgraph tp1[Lower Level Panel]
+  subgraph lp[Right Pane]
     touchLP["Touch Toggle 2.1...2.6"]
-    end
-  subgraph tp2[Upper Level Panel]
-    subgraph base[Nano Base]
-      Nano
-      end
-    touchUP["Touch Toggle 1.1...1.9"]
-    end
-  Buck8 -->|+8V| Nano -->|GND| Buck8
-  Mega -->|I2C Clock| base
-  Mega <-->|I2C Data| base
-  base -->|"brown +5V"| touchLP & touchUP -->|"red GND"| base
-  base <-->|"yellow sensor"| touchLP & touchUP
-
-```
+  end
+  subgraph cp[Center Pane]
+    Powerp["19.5vdc +"] ---> toggle[Power Toggle] ---> Powern["19.5vdc -"]
+    TrackAp["Track A +"] ---> LEDa["Bi-color LED"] --> ResistorA["Resistor"] --> TrackAn["Track A -"]
+    TrackBp["Track B +"] ---> LEDb["Bi-color LED"] --> ResistorB["Resistor"] --> TrackBn["Track B -"]
+    9Vp["9.0 VDC +"] ---> Nano ---> 9Vn["9.0 VDC -"]
+    I2Cc["I2C Clock"] <---> Nano <---> I2Cd["I2C Data"]
+  end
+  subgraph rp[Left Pane]
+    touchRP["Touch Toggle 1.1...1.9"]
+  end
+  Nano ---->|"brown +5V"| touchLP & touchRP --->|"red GND"| Nano
+  Nano <---->|"yellow sensor"| touchLP & touchRP
