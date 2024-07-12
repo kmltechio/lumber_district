@@ -1,6 +1,7 @@
 CommandStation-EX
 EX-IOExpander
 .env
+.DS_Store
 
 # Prerequisites
 *.d
