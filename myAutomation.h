@@ -4,7 +4,7 @@ ROSTER(9916,"CB&Q E7A","Lights/*Bell/*Horn/Couple/DynBrake/EngUp/EngDown/MARS/Vo
 // Kato w/ Digitrax DN123K3 decoder
 ROSTER(9211,"CB&Q NW2","Lights")
 // Non-DDC engines on the B track
-ROSTER(666,"CD Engine")
+ROSTER(666,"DC Engine")
 
 // Track Manager
 AUTOSTART
