@@ -9,6 +9,6 @@ ROSTER(666,"CD Engine")
 // Track Manager
 AUTOSTART
 SET_TRACK(A, MAIN)
-SETLOCO(666) SET_TRACK(B, DCX) // set the DC locos to Track B aka trolley and reverse polarity so that Engine Driver looks correct
+SETLOCO(666) SET_TRACK(B, DC) // set the DC locos to Track B aka trolley line
 POWERON
 DONE
