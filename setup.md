@@ -39,3 +39,12 @@ Use the Arduino IDE for these steps.
 1. Press the `verify` button
 1. Ensure your board is connected (typically via USB on COM3)
 1. Press the `upload` button
+
+# Debugging
+
+1. Connect the usb cable to the Mega
+1. `ls -la /dev/tty.usb*`
+1. Open Arduino IDE
+1. Select the proper usb tty device from the Tools menu
+1. Open Serial Monitor (this will reboot the Mega)
+1. You can enter direct DCC-EX commands like `<s>`
