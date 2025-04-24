@@ -1,0 +1,44 @@
+// TODO we may need to use SETFREQ during bootup
+// TODO see ANOUT & PLAYSOUND for how to add mp3s with a DFPlayer
+
+#define TROLLEY_SPEED 50 // TODO actual value needed
+#define TROLLEY_SHRT_MS 2500
+#define TROLLEY_MED_MS 10000
+#define TROLLEY_LNG_MS 20000
+
+
+ALIAS(TROLLEY_START)
+ALIAS(TROLLEY_WB)
+ALIAS(TROLLEY_EB)
+
+// We start by always driving westbound to the west IR sensor.  If we happen to
+// start while already to the west IR sersor, the AT() should still kick in
+// immediately.  This is the only 1 of the 3 sequences that will be visible to
+// throttles
+AUTOMATION(TROLLEY_START,"Start Trolley")
+  FWD(TROLLEY_SPEED)
+  AT(SENS_IR_WEST)
+  STOP
+  FOLLOW(TROLLEY_EB)
+
+SEQUENCE(TROLLEY_WB)
+  FWD(TROLLEY_SPEED)
+  AT(SENS_IR_MID)
+  STOP
+  DELAYRANDOM(TROLLEY_SHRT_MS, TROLLEY_MED_MS)
+  FWD(TROLLEY_SPEED)
+  AT(SENS_IR_WEST)
+  STOP
+  DELAYRANDOM(TROLLEY_MED_MS, TROLLEY_LNG_MS)
+  FOLLOW(TROLLEY_EB)
+
+SEQUENCE(TROLLEY_EB)
+  REV(TROLLEY_SPEED)
+  AT(SENS_IR_MID)
+  STOP
+  DELAYRANDOM(TROLLEY_SHRT_MS, TROLLEY_MED_MS)
+  REV(TROLLEY_SPEED)
+  AT(SENS_IR_EAST)
+  STOP
+  DELAYRANDOM(TROLLEY_MED_MS, TROLLEY_LNG_MS)
+  FOLLOW(TROLLEY_WB)
