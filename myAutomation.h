@@ -1,16 +1,19 @@
 // Always include roster first
 #include "myRoster.h"
 
-// Next alias all Mega & IOExpander pins here
-// TODO see HAL() to allocate IOEXPANDERS as well
-// TODO need actual pin assignments ... these are dummies
-ALIAS(SENS_HEAT, 12)
-ALIAS(PIN_FAN, 55)
-ALIAS(SENS_IR_WEST, 56)
-ALIAS(SENS_IR_MID, 57)
-ALIAS(SENS_IR_EAST, 58)
+// Set up our I2C expanders
+HAL(EXIOExpander, 800, 18, 0x65) // touch panel nano
+// TODO add more here
 
-// Next startup our tracks/power
+// Alias all Mega & IOExpander pins here
+// see https://dcc-ex.com/reference/hardware/pin-vpin-allocations.html
+ALIAS(SENS_HEAT, A8)
+ALIAS(PIN_FAN, 22)
+ALIAS(SENS_IR_WEST, 23)
+ALIAS(SENS_IR_MID, 24)
+ALIAS(SENS_IR_EAST, 25)
+
+// Startup our track power
 AUTOSTART                                     // This sequence auto runs at bootup
 SET_TRACK(A, MAIN)                            // Track A is set for DCC
 SETLOCO(TROLLEY_LOCO_NUM) SET_TRACK(B, DC)    // Track B set for DC, specifically the trolley
@@ -29,13 +32,6 @@ SEQUENCE(SEQ_FAN_CTL)
   RESET(PIN_FAN)
   FOLLOW(SEQ_FAN_CTL)
 
+// Include all remaining routes and automations below
 #include "myTrolley.h"
-
-
-
-/*
-TODO lower loop automation
-Needs at least one IR sensor
-Needs to CALL a ROUTE to set turnouts
-Use XF*() functions to turn on/off DCC loco sounds
-*/
+#include "myPassengerLoop.h"

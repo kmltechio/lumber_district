@@ -43,12 +43,6 @@ lighting across the layout.
     1. Verify in serial monitor?
     1. Test in Engine Driver (requires android device)
     1. Setup images in Engine Driver
-1. Finalize benchwork design
-    1. ✅ Of frame
-        1. ✅ Including around the upper level
-        1. ✅ Of shelf/electronics box/panels
-    1. ✅ Thickness of foam/underlayment
-    1. ✅ Leg mounting
-    1. Backdrop and possible over head lighting?
-    1. Staging cassette(s)
+1. Backdrop and possible over head lighting?
+1. Staging cassette(s)
 1. Investigate use of dfplayer for city sounds/bg noise/ex rail automations
