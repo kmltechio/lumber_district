@@ -1,16 +1,16 @@
 CS_EX=CommandStation-EX
-
 # Edit this to build a specific branch of CommandStation-EX
 CS_EX_BRANCH=master
-# Add any files here that you need straight copied into the CS_EX directory
-CONFIGS=$(CS_EX)/myAutomation.h $(CS_EX)/myRoster.h $(CS_EX)/myTrolley.h $(CS_EX)/myPassengerLoop.h
-# Add any files here that you need 1Password values interpolated into then
+# Files that need to have 1Password values interpolated into them and then
 # copied into the CS_EX directory
-CONFIGS_W_SECRETS=$(CS_EX)/config.h
+CS_EX_CONFIGS_W_SECRETS=$(CS_EX)/config.h
+# Files that need to be copied into the CS_EX directory
+CS_EX_CONFIGS=$(CS_EX)/myAutomation.h $(CS_EX)/myRoster.h $(CS_EX)/myTrolley.h \
+    $(CS_EX)/myPassengerLoop.h
 
 IO_EX=EX-IOExpander
 
-all: update_cs_ex $(IO_EX) config
+all: update_cs_ex $(IO_EX) config_cs_ex
 
 $(CS_EX):
 	git clone https://github.com/DCC-EX/$@.git
@@ -23,19 +23,19 @@ update_cs_ex: $(CS_EX)
 	git pull; \
 	git switch $(CS_EX_BRANCH)
 
-config: check_op $(CONFIGS) $(CONFIGS_W_SECRETS)
+config_cs_ex: check_op $(CS_EX_CONFIGS) $(CS_EX_CONFIGS_W_SECRETS)
 
 check_op:
 	@op account get > /dev/null 2>&1 || echo 'Please log in to op: eval $$(op signin)'
 
-$(CONFIGS): $(CS_EX)/%: %
+$(CS_EX_CONFIGS): $(CS_EX)/%: %
 	cp $< $@
 
-$(CONFIGS_W_SECRETS): $(CS_EX)/%: %
+$(CS_EX_CONFIGS_W_SECRETS): $(CS_EX)/%: %
 	op inject -f -i $< -o $@
 
 # TODO check for local modifications before removing
 clean:
 	rm -rf $(CS_EX)
 
-.PHONY: all check_op clean config update_cs_ex
+.PHONY: all check_op clean config_cs_ex update_cs_ex
