@@ -107,14 +107,14 @@ The configuration file for DCC-EX Command Station
 // The AP mode password must be at least 8 characters long.
 //
 // Your SSID may not contain ``"'' (double quote, ASCII 0x22).
-#define WIFI_SSID "op://Personal/Home Wifi/network name"
+#define WIFI_SSID "op://Family/WiFi - Home/network name"
 //
 // WIFI_PASSWORD is the network password for your home network or if
 // you want to change the password from default AP mode password
 // to the AP password you want. 
 // Your password may not contain ``"'' (double quote, ASCII 0x22).
 // KML don't put password here...Makefile will sed it in place
-#define WIFI_PASSWORD "op://Personal/Home Wifi/wireless network password"
+#define WIFI_PASSWORD "op://Family/WiFi - Home/wireless network password"
 //
 // WIFI_HOSTNAME: You can change this if you have more than one
 // CS to make them show up with different names on the network.
