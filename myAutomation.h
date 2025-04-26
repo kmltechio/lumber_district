@@ -8,10 +8,16 @@ HAL(EXIOExpander, 800, 18, 0x65) // touch panel nano
 // Alias all Mega & IOExpander pins here
 // see https://dcc-ex.com/reference/hardware/pin-vpin-allocations.html
 ALIAS(SENS_HEAT, A8)
-ALIAS(PIN_FAN, 22)
-ALIAS(SENS_IR_WEST, 23)
-ALIAS(SENS_IR_MID, 24)
-ALIAS(SENS_IR_EAST, 25)
+// Reserve 22 for possible I2C interrupts
+ALIAS(PIN_FAN, 23)
+ALIAS(SENS_IR_TROLLEY_WEST, 24)
+ALIAS(SENS_IR_TROLLEY_MID, 25)
+ALIAS(SENS_IR_TROLLEY_EAST, 26)
+ALIAS(SENS_IR_TUNNEL_WEST, 27)
+ALIAS(SENS_IR_TUNNEL_EAST, 28)
+// Reserve these next two
+// ALIAS(SENS_IR_STAGING_WB, 29)
+// ALIAS(SENS_IR_STAGING_EB, 30)
 
 // Startup our track power
 AUTOSTART                                     // This sequence auto runs at bootup
