@@ -40,11 +40,26 @@ Use the Arduino IDE for these steps.
 1. Ensure your board is connected (typically via USB on COM3)
 1. Press the `upload` button
 
-# Debugging
+## For Mega/CommandStation-EX
 
-1. Connect the usb cable to the Mega
+1. Tools > Board > Arduino AVR Boards > Arduino Mega or Mega 2560
+1. Tools > Processor > ATmega 2560 (Mega 2560)
+1. Tools > Port > (select the usb port...see below)
+
+## For Nano Every/EX-IOExpanders
+
+1. Tools > Board > Arduino megaAVR Boards > Arduino Nano Every
+1. Tools > Registers Emulation > None ATMEGAA4809
+1. Tools > Port > (select the usb port...see below)
+
+Note when uploading you may get the following error, it can be ignored; the upload still succeeds
+```
+avrdude: jtagmkII_initialize(): Cannot locate "flash" and "boot" memories in description
+```
+
+## Selecting the USB port
+
+Arduino IDE on MacOS doesn't always pick up the usb port so run this from a shell to see what the proper port is
+
+1. Connect the usb cable to the Arduino
 1. `ls -la /dev/tty.usb*`
-1. Open Arduino IDE
-1. Select the proper usb tty device from the Tools menu
-1. Open Serial Monitor (this will reboot the Mega)
-1. You can enter direct DCC-EX commands like `<s>`
