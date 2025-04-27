@@ -7,7 +7,9 @@ HAL(EXIOExpander, 800, 18, 0x65) // touch panel nano
 
 // Alias all Mega & IOExpander pins here
 // see https://dcc-ex.com/reference/hardware/pin-vpin-allocations.html
-ALIAS(SENS_HEAT, A8)
+//
+// Mega Pin Assignements
+//
 // Reserve 22 for possible I2C interrupts
 ALIAS(PIN_FAN, 23)
 ALIAS(SENS_IR_TROLLEY_WEST, 24)
@@ -18,6 +20,12 @@ ALIAS(SENS_IR_TUNNEL_EAST, 28)
 // Reserve these next two
 // ALIAS(SENS_IR_STAGING_WB, 29)
 // ALIAS(SENS_IR_STAGING_EB, 30)
+//
+// Touch Panel Nano Pin Assignments
+//
+// Note avoid D13 or test to see if it works (often conflicts with onboard LED)
+ALIAS(SENS_HEAT, 812) // A0
+
 
 // Startup our track power
 AUTOSTART                                     // This sequence auto runs at bootup
@@ -37,6 +45,8 @@ SEQUENCE(SEQ_FAN_CTL)
   ATLT(SENS_HEAT, HEAT_OFF_VAL)
   RESET(PIN_FAN)
   FOLLOW(SEQ_FAN_CTL)
+
+// TODO create a macro for turnout/touch/h-bridge control
 
 // Include all remaining routes and automations below
 #include "myTrolley.h"
