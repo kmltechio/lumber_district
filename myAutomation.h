@@ -1,31 +1,5 @@
-// Always include roster first
 #include "myRoster.h"
-
-// Set up our I2C expanders
-HAL(EXIOExpander, 800, 18, 0x65) // touch panel nano
-// TODO add more here
-
-// Alias all Mega & IOExpander pins here
-// see https://dcc-ex.com/reference/hardware/pin-vpin-allocations.html
-//
-// Mega Pin Assignements
-//
-// Reserve 22 for possible I2C interrupts
-ALIAS(PIN_FAN, 23)
-ALIAS(SENS_IR_TROLLEY_WEST, 24)
-ALIAS(SENS_IR_TROLLEY_MID, 25)
-ALIAS(SENS_IR_TROLLEY_EAST, 26)
-ALIAS(SENS_IR_TUNNEL_WEST, 27)
-ALIAS(SENS_IR_TUNNEL_EAST, 28)
-// Reserve these next two
-// ALIAS(SENS_IR_STAGING_WB, 29)
-// ALIAS(SENS_IR_STAGING_EB, 30)
-//
-// Touch Panel Nano Pin Assignments
-//
-// Note avoid D13 or test to see if it works (often conflicts with onboard LED)
-ALIAS(SENS_HEAT, 812) // A0
-
+#include "myHal.h"
 
 // Startup our track power
 AUTOSTART                                     // This sequence auto runs at bootup
@@ -35,8 +9,8 @@ POWERON                                       // Turn on power to both tracks
 DONE
 
 // Autostart our fan controller
-#define HEAT_ON_VAL 95  // TODO need real value via experimenation
-#define HEAT_OFF_VAL 85 // TODO need real value via experimenation
+#define HEAT_ON_VAL  150 // ~95degF based on empirical testing
+#define HEAT_OFF_VAL 142 // about room temp
 ALIAS(SEQ_FAN_CTL)
 SEQUENCE(SEQ_FAN_CTL)
   AUTOSTART
