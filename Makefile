@@ -50,7 +50,7 @@ update_io_ex: $(IO_EX)
 $(IO_EX_CONFIGS): $(IO_EX)/%: %
 	cp $< $@
 
-compile_io_ex:
+compile_io_ex: $(IO_EX_CONFIGS)
 	arduino-cli compile $$BUILD_FLAGS -b $(IO_EX_BOARD) $(IO_EX)
 
 upload_io_ex: compile_io_ex .board-info.mk
