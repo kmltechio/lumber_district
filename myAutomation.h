@@ -74,7 +74,7 @@ ALIAS(latc, sens - 700) \
 SEQUENCE(seq) \
   AUTOSTART \
   IF(sens) ENDIF \
-  DELAYMS(TOUCH_READ_MS) \
+  DELAY(TOUCH_READ_MS) \
   IF(sens) \
     IFNOT(latc) LATCH(latc) ENDIF \
   ELSE \
@@ -83,7 +83,7 @@ SEQUENCE(seq) \
   IF(latc) SET(sens) \
   ELSE RESET(sens) \
   ENDIF \
-  DELAYMS(TOUCH_SHOW_MS) \
+  DELAY(TOUCH_SHOW_MS) \
   FOLLOW(seq)
 
 TOUCH_CTL(SEQ_1_1, TOUCH_1_1, STATE_1_1)
