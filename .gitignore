@@ -1,5 +1,7 @@
 CommandStation-EX
 EX-IOExpander
+.board-info.mk
+
 .env
 .DS_Store
 
