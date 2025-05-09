@@ -1,4 +1,4 @@
-.PHONY: .board-info.mk all compile setup clean \
+.PHONY: all compile setup \
 	compile_cs_ex setup_cs_ex upload_cs_ex \
 	compile_io_ex setup_io_ex upload_io_ex
 
@@ -29,16 +29,14 @@ $(CS_EX_CONFIGS): $(CS_EX)/%: %
 
 # Injects the wifi ssid and pwd from 1Password into the compile process
 compile_cs_ex: $(CS_EX_CONFIGS)
-	@WIFI_SSID="$$(op read 'op://Family/WiFi - Home/network name')"; \
+	@echo Compiling $(CS_EX); \
+	WIFI_SSID="$$(op read 'op://Family/WiFi - Home/network name')"; \
 	WIFI_PASSWORD="$$(op read 'op://Family/WiFi - Home/wireless network password')"; \
 	arduino-cli compile --build-property compiler.cpp.extra_flags="-DWIFI_SSID=\"$$WIFI_SSID\" -DWIFI_PASSWORD=\"$$WIFI_PASSWORD\"" -b $(CS_EX_BOARD) $(CS_EX); \
 
-upload_cs_ex: compile_cs_ex .board-info.mk
-	@if [ "$(BOARD)" = "$(CS_EX_BOARD)" ]; then \
-		arduino-cli upload -b $(CS_EX_BOARD) -p $(DEVICE) $(CS_EX); \
-	else \
-		echo "⚠️ Won't compile: expected $(CS_EX_BOARD), found $(BOARD)"; \
-	fi
+upload_cs_ex: compile_cs_ex
+	@echo ; \
+	./upload.sh $(CS_EX_BOARD) $(CS_EX)
 
 
 IO_EX=EX-IOExpander
@@ -58,36 +56,12 @@ $(IO_EX_CONFIGS): $(IO_EX)/%: %
 	cp $< $@
 
 compile_io_ex: $(IO_EX_CONFIGS)
-	@I2C_ADDRESS="${I2C_ADDRESS}"; \
+	@echo Compiling $(IO_EX); \
+	I2C_ADDRESS="${I2C_ADDRESS}"; \
 	[ -z "$$I2C_ADDRESS" ] && I2C_ADDRESS=0x65; \
-	echo "Compiling with I2C_ADDRESS=$$I2C_ADDRESS"; \
+	echo "\tI2C_ADDRESS=$$I2C_ADDRESS"; \
 	arduino-cli compile --build-property compiler.cpp.extra_flags="-DI2C_ADDRESS=$$I2C_ADDRESS" -b $(IO_EX_BOARD) $(IO_EX)
 
-upload_io_ex: compile_io_ex .board-info.mk
-	@if [ "$(BOARD)" = "$(IO_EX_BOARD)" ]; then \
-		arduino-cli upload -b $(IO_EX_BOARD) -p $(DEVICE) $(IO_EX); \
-	else \
-		echo "⚠️ Won't compile: expected $(IO_EX_BOARD), found $(BOARD)"; \
-	fi
-
-
-clean:
-	@rm -f .board-info.mk
-
-# Get the currently connected usb device and arduino board
-.board-info.mk:
-	@echo "🔍 Detecting connected Arduino board..."; \
-	output="$$(arduino-cli board list | grep Arduino)"; \
-	if [ -z "$$output" ]; then \
-		echo "❌ ERROR: No Arduino board connected." >&2; exit 1; \
-	fi; \
-	device="$$(echo $$output | awk '{print $$1}')"; \
-	board="$$(echo $$output | awk '{print $$(NF-1)}')"; \
-	echo "✅ Found device: $$device"; \
-	echo "✅ Found board: $$board"; \
-	echo "DEVICE=$$device" > $@; \
-	echo "BOARD=$$board" >> $@
-
-# Include the file (auto includes once re-generated!) to load DEVICE and BOARD
--include .board-info.mk
-
+upload_io_ex: compile_io_ex
+	@echo ; \
+	./upload.sh $(IO_EX_BOARD) $(IO_EX)
