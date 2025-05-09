@@ -15,7 +15,14 @@
 1. Run `make setup` to clone the CommandStation-EX and EX-IOExpander repos.
 1. Run `make` (or `make compile`) to configure and compile the code.
 1. Attach your Arduino board to the USB.
-1. Run either `make upload_cs_ex` or `make upload_io_ex` depending on your need.
+1. Run either `make upload_cs_ex` or `make upload_io_ex I2C_ADDRESS=0x65` depending on your need.
+
+I2C_ADDRESS should be passed as follows:
+| Addr | Use                         |
+|------|-----------------------------|
+| 0x65 | Touch panel nano            |
+| 0x66 | H-Bridge nano - lower level |
+| 0x67 | H-Bridge nano - upper level |
 
 Note when uploading you may get the following error, it can be ignored; the upload still succeeds
 ```

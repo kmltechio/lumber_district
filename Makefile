@@ -43,7 +43,7 @@ upload_cs_ex: compile_cs_ex .board-info.mk
 
 IO_EX=EX-IOExpander
 IO_EX_BRANCH := master
-IO_EX_CONFIGS :=
+IO_EX_CONFIGS := $(IO_EX)/myConfig.h
 IO_EX_BOARD := arduino:megaavr:nona4809
 
 $(IO_EX):
@@ -58,7 +58,10 @@ $(IO_EX_CONFIGS): $(IO_EX)/%: %
 	cp $< $@
 
 compile_io_ex: $(IO_EX_CONFIGS)
-	arduino-cli compile $$BUILD_FLAGS -b $(IO_EX_BOARD) $(IO_EX)
+	@I2C_ADDRESS="${I2C_ADDRESS}"; \
+	[ -z "$$I2C_ADDRESS" ] && I2C_ADDRESS=0x65; \
+	echo "Compiling with I2C_ADDRESS=$$I2C_ADDRESS"; \
+	arduino-cli compile --build-property compiler.cpp.extra_flags="-DI2C_ADDRESS=$$I2C_ADDRESS" -b $(IO_EX_BOARD) $(IO_EX)
 
 upload_io_ex: compile_io_ex .board-info.mk
 	@if [ "$(BOARD)" = "$(IO_EX_BOARD)" ]; then \

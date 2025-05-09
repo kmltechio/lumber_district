@@ -1,6 +1,5 @@
 # TODO
 
-1. Inject the I2C address when building EX-IOExpander
 1. Fork EX-IOExpander and commit changes
     1. Debug Nano Every servo issues
     1. Open PR
