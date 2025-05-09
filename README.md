@@ -33,16 +33,4 @@ lighting across the layout.
 
 * [Setup & Compilation](./docs/SETUP.md)
 * [Diagrams](./docs/DIAGRAMS.md)
-
-## TODOs
-
-1. Investigate use of [arduino-cli](https://github.com/arduino/arduino-cli)
-   with make instead of manualing clicking in Arduino IDE.
-1. Investigate hostname/xfinity issue
-1. Enter roster into myAutomation.h
-    1. Verify in serial monitor?
-    1. Test in Engine Driver (requires android device)
-    1. Setup images in Engine Driver
-1. Backdrop and possible over head lighting?
-1. Staging cassette(s)
-1. Investigate use of dfplayer for city sounds/bg noise/ex rail automations
+* [TODO](./docs/TODO.md)
