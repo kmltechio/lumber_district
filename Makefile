@@ -1,6 +1,13 @@
-.PHONY: .board-info.mk all check_op clean compile_cs_ex update_cs_ex upload_cs_ex
+.PHONY: .board-info.mk all compile setup clean \
+	compile_cs_ex setup_cs_ex upload_cs_ex \
+	compile_io_ex setup_io_ex upload_io_ex
 
-all: compile_cs_ex compile_io_ex
+all: compile
+
+setup: setup_cs_ex setup_io_ex
+
+compile: compile_cs_ex compile_io_ex
+
 
 
 CS_EX := CommandStation-EX
@@ -12,7 +19,7 @@ CS_EX_BOARD := arduino:avr:mega
 $(CS_EX):
 	git clone https://github.com/DCC-EX/$@.git
 
-update_cs_ex: $(CS_EX)
+setup_cs_ex: $(CS_EX)
 	@cd $(CS_EX) && \
 	git fetch origin && \
 	git checkout -B $(CS_EX_BRANCH) origin/$(CS_EX_BRANCH)
@@ -42,7 +49,7 @@ IO_EX_BOARD := arduino:megaavr:nona4809
 $(IO_EX):
 	git clone https://github.com/DCC-EX/$@.git
 
-update_io_ex: $(IO_EX)
+setup_io_ex: $(IO_EX)
 	@cd $(IO_EX) && \
 	git fetch origin && \
 	git checkout -B $(IO_EX_BRANCH) origin/$(IO_EX_BRANCH)
