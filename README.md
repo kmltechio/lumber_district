@@ -33,4 +33,4 @@ lighting across the layout.
 
 * [Setup & Compilation](./docs/SETUP.md)
 * [Diagrams](./docs/DIAGRAMS.md)
-* [TODO](./docs/TODO.md)
+* [TODOs](./docs/TODO.md)
