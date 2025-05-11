@@ -40,12 +40,13 @@ upload_cs_ex: compile_cs_ex
 
 
 IO_EX=EX-IOExpander
-IO_EX_BRANCH := master
+IO_EX_BRANCH := kml-add-nano-every-support
 IO_EX_CONFIGS := $(IO_EX)/myConfig.h
 IO_EX_BOARD := arduino:megaavr:nona4809
 
 $(IO_EX):
-	git clone https://github.com/DCC-EX/$@.git
+	git clone https://github.com/kmltechio/$@.git
+#	git clone https://github.com/DCC-EX/$@.git
 
 setup_io_ex: $(IO_EX)
 	@cd $(IO_EX) && \
