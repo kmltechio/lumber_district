@@ -1,8 +1,5 @@
 # TODOs
 
-1. Fork EX-IOExpander and commit changes
-    1. Debug servo issues
-    1. Open PR
 1. Wiring/track cleaning/testing
 1. Install & debug touch toggles
 1. H-Bridges and TURNOUT programming
@@ -28,3 +25,6 @@
     1. Custom c++ or EX-RAIL over I2C?
 1. dfplayer for sounds/bg noise/ex rail automations
 1. Shelving or storage underneath?
+1. ✅ Fork EX-IOExpander and commit changes
+    1. Debug servo issues
+    1. Open PR
