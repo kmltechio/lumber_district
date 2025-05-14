@@ -1,0 +1,49 @@
+@startuml Communications & Ports
+
+!theme crt-amber
+skinparam componentStyle rectangle
+
+interface "19.5VDC+" as dcplus19
+interface "9VDC+" as dcplus9
+interface "SCL" as scl
+interface "Track A+" as a_plus
+interface "Track B+" as b_plus
+
+frame Panel {
+    component [SPST Switch] as spst
+    component [Nano Every] as nano
+    component [Bi-color LED] as led_a
+    component [Resistor] as res_a
+    component [Bi-color LED] as led_b
+    component [Resistor] as res_b
+    component [Touch Toggles (x15)] as touch
+    component [Temp Sensor] as temp
+}
+
+interface "19.5VDC+" as dcplus19_b
+interface "Ground" as ground
+interface "SDA" as sda
+interface "Track A-" as a_minus
+interface "Track B-" as b_minus
+
+dcplus19 --> spst
+spst ---> dcplus19_b
+
+dcplus9 --> nano
+nano ---> ground
+scl --> nano
+nano ---> sda
+
+a_plus --> led_a
+led_a --> res_a
+res_a --> a_minus
+
+b_plus --> led_b
+led_b --> res_b
+res_b --> b_minus
+
+nano -r-> touch : 3 wires each\n5VDC, GND, Sensor
+nano --> temp : 3 wires\n5VDC, GND, Sensor
+touch -[hidden]d-> temp
+
+@enduml

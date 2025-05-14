@@ -1,0 +1,43 @@
+@startuml Communications & Ports
+
+!theme crt-amber
+skinparam componentStyle rectangle
+' skinparam linetype polyline
+
+component [PSU\n(19.5VDC)] as psu
+
+frame [Phone/Tablet] {
+    component [Throttle App] as throttle
+}
+frame Laptop {
+    component [Arduino IDE] as ide
+    component [Throttle App] as throttle2
+}
+frame [Layout] {
+    portIn "2.5mm\nbarrel" as power_barrel
+    portIn "USB\ntype A" as usb
+    portOut "2.1mm\nbarrel" as stage_barrel
+    component [Mega] as mega
+    component [WiFi Shield] as wifi
+    component [Nano Every\n(lower h-bridges)] as lower
+    component [Nano Every\n(upper h-bridges)] as upper
+    component [Nano Every\n(touch panel)] as touch
+}
+frame [Staging\nCassette] as cass {
+    component [Tracks] as tracks
+}
+
+throttle <...> wifi : WiFi
+throttle2 <...> wifi : WiFi
+ide <--> usb
+usb <--> mega
+psu --> power_barrel
+
+mega <-> wifi : serial
+mega <--> touch : I2C
+mega <--> lower : I2C
+mega <--> upper : I2C
+
+stage_barrel -> tracks : DCC
+
+@enduml

@@ -1,5 +1,8 @@
 @startuml Power Distribution
 
+!theme crt-amber
+skinparam componentStyle rectangle
+
 component [Wall Outlet] as wall
 component [Laptop PSU] as psu
 component [Buck Converter 9V] as buck9
