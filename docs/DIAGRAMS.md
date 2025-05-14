@@ -1,32 +1,7 @@
 # Power Distribution
 
-```mermaid
-flowchart LR
-  P120[Wall Plug]
-  PSU
-  P120 -->|120VAC| PSU
-  Buck14[Buck 14V]
-  Buck8[Buck 8V]
-  PSU -->|19.5V| Buck14 & Buck8
-  subgraph CmdStn[CommandStation EX]
-    direction BT
-    Mega
-    Motor[Motor Shield]
-    WiFi[Wifi Shield]
-    Mega -->|5V| Motor -->|5V| WiFi
-    end
-  Lights[Lighting Nano]
-  Touch[Touch Panel Nano]
-  Gpio["IO_EX Nanos 1-2"]
-  HBridge["H Bridges 1-9"]
-  IRSensors[IR Sensors]
-  Buck8 -->|8V| Mega
-  Buck8 ----->|8V| Lights & Touch & Gpio
-  Buck14 ----->|14V| HBridge
-  Buck14 --->|14V| Motor
-  Mega ---->|5V| IRSensors
-  Mega -->|5V| Fan
-```
+![Power Distribution](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/kmltechio/lumber_district/master/docs/POWER.puml)
+
 
 # Communication & Ports
 
