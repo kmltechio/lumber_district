@@ -2,28 +2,28 @@
 
 component [Wall Outlet] as wall
 component [Laptop PSU] as psu
-component [Buck Converter 8V] as buck8
-component [Buck Converter 14V] as buck14
+component [Buck Converter 9V] as buck9
+component [Buck Converter 12V] as buck12
 component "CommandStation-EX" {
-    component [Mega] as mega
-    component [Motor Shield] as motor
-    component [WiFi Shield] as wifi
+    component [Arduino\nMega] as mega
+    component [Arduino\nMotor Shield rev3] as motor
+    component [Makerfabs\nESP8266 WiFi Shield] as wifi
 }
-component [Nano Every (x4)] as nano
-component [IR Sensors (x5)] as ir
-component [H Bridges (x9)] as h_bridges
-component [Touch Toggles (x15)] as touch
+component [Arduino\nNano Every\n(x4)] as nano
+component [IR Sensors\n(x5)] as ir
+component [H Bridges\n(x9)] as h_bridges
+component [Touch Toggles\n(x15)] as touch
 component [Fan] as fan
 
 wall --> psu : 120V AC
-psu --> buck8 : 19.5V DC
-psu --> buck14 : 19.5V DC
+psu --> buck9 : 19.5V DC
+psu --> buck12 : 19.5V DC
 
-buck14 --> h_bridges : 14V DC
-buck14 ---> motor : 14V DC
+buck12 --> h_bridges : 12V DC
+buck12 ---> motor : 12V DC
 
-buck8 --> mega : 8V DC
-buck8 --> nano : 8V DC
+buck9 --> mega : 9V DC
+buck9 --> nano : 9V DC
 
 mega --> motor : 5V DC
 motor --> wifi : 5V DC
