@@ -42,8 +42,7 @@ b_plus --> led_b
 led_b --> res_b
 res_b --> b_minus
 
-nano -r-> touch : 3 wires each\n5VDC, GND, Sensor
-nano --> temp : 3 wires\n5VDC, GND, Sensor
-touch -[hidden]d-> temp
+nano -> touch : 3 wires each\n5VDC, GND, Sensor
+nano -l-> temp : 3 wires\n5VDC, GND, Sensor
 
 @enduml
