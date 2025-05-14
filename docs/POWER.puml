@@ -7,7 +7,7 @@ component [Wall Outlet] as wall
 component [Laptop PSU] as psu
 component [Buck Converter 9V] as buck9
 component [Buck Converter 12V] as buck12
-component "CommandStation-EX" {
+frame "CommandStation-EX" {
     component [Arduino\nMega] as mega
     component [Arduino\nMotor Shield rev3] as motor
     component [Makerfabs\nESP8266 WiFi Shield] as wifi
