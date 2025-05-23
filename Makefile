@@ -12,8 +12,9 @@ compile: compile_cs_ex compile_io_ex
 
 CS_EX := CommandStation-EX
 CS_EX_BRANCH := master
-CS_EX_CONFIGS := $(CS_EX)/config.h $(CS_EX)/myAutomation.h $(CS_EX)/myRoster.h \
-	$(CS_EX)/myTrolley.h $(CS_EX)/myPassengerLoop.h
+CS_EX_CONFIGS := $(CS_EX)/config.h $(CS_EX)/myAutomation.h \
+	$(CS_EX)/myPassengerLoop.h $(CS_EX)/myPins.h $(CS_EX)/myRoster.h \
+	$(CS_EX)/myTrolley.h
 CS_EX_BOARD := arduino:avr:mega
 
 $(CS_EX):
