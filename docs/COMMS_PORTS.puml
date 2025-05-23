@@ -30,7 +30,7 @@ frame [Staging\nCassette] as cass {
 throttle <...> wifi : WiFi
 throttle2 <...> wifi : WiFi
 ide <--> usb
-usb <--> mega
+usb <--> mega : "USB\ntype B"
 psu --> power_barrel
 
 mega <-> wifi : serial
