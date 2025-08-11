@@ -12,8 +12,7 @@
 ALIAS(ali, turn) \
 VIRTUAL_TURNOUT(turn, desc) \
 DONE \
-ONSENSOR( sens) THROW(turn) DONE \
-ONSENSOR(-sens) CLOSE(turn) DONE \
+ONSENSOR(sens) IF(sens) THROW(turn) ELSE CLOSE(turn) ENDIF DONE \
 ONCLOSE(turn) SET(hba) RESET(hbb) SET(enable) DELAY(KATO_PULSE_MS) RESET(enable) DONE \
 ONTHROW(turn) RESET(hba) SET(hbb) SET(enable) DELAY(KATO_PULSE_MS) RESET(enable) DONE
 

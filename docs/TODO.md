@@ -1,5 +1,9 @@
 # TODOs
 
+1. File a bug for CommandStation-EX, <J I> and <J G> respones are not one per
+track, rather all the tracks are included in one response. The documentation is
+incorrect:
+https://dcc-ex.com/reference/software/command-summary-consolidated.html#j-i-ji-request-current-status
 1. Wiring/track cleaning/testing
 1. Install & debug touch toggles
 1. H-Bridges and TURNOUT programming
