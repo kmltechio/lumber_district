@@ -13,8 +13,8 @@ SETLOCO(TROLLEY_LOCO_NUM) SET_TRACK(B, DC)    // Track B set for DC, specificall
 DONE
 
 // Autostart the fan controller
-#define HEAT_ON_VAL  165 // ~95degF based on empirical testing
-#define HEAT_OFF_VAL 155 // about room temp
+#define HEAT_ON_VAL  150 // ~95degF based on empirical testing
+#define HEAT_OFF_VAL 140 // about room temp
 ALIAS(SEQ_FAN_CTL)
 SEQUENCE(SEQ_FAN_CTL)
   AUTOSTART
